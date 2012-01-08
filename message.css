@@ -1,0 +1,66 @@
+.key:after {
+    content:" : ";
+}
+
+.value:after {
+    content:",";
+}
+
+.hash:before {
+    content:"{";
+}
+
+.hash:after {
+    content:"},";
+}
+
+.array:before {
+    content:"[";
+}
+
+.array:after {
+    content:"],";
+}
+
+.array div.value,
+.hash div.pair,
+.hash div.value
+{
+    margin-left:1em;
+}
+
+.message-from-1:before {
+    content:"User 1 to Server: {";
+}
+
+.message-from-2:before {
+    content:"User 2 to Server: {";
+}
+
+.message-from-3:before {
+    content:"User 3 to Server: {";
+}
+
+.message-from-4:before {
+    content:"User 4 to Server: {";
+}
+
+.message-to-1:before {
+    content:"Server to User 1: {";
+}
+
+.message-to-2:before {
+    content:"Server to User 2: {";
+}
+
+.message-to-3:before {
+    content:"Server to User 3: {";
+}
+
+.message-to-4:before {
+    content:"Server to User 4: {";
+}
+
+.message-to-all:before {
+    content:"Server to User *: {";
+}

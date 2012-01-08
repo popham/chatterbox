@@ -1,0 +1,43 @@
+* {
+/*    margin:0;
+    padding:0;*/
+}
+
+.chatterbox {
+    background-color:lightgrey; /* temporary for visualization */
+    width:300px;
+}
+
+.chatterbox-selected {
+    background-color:blue;
+}
+
+.chatterbox-partner {
+/*    display:block;*/
+/*    overflow:auto;*/
+    position:relative;
+}
+
+.chatterbox-avatar {
+    text-align:right;
+}
+
+.chatterbox-partner-info {
+    display:inline-block;
+    height:40px;
+}
+
+.chatterbox-messages {
+    position:absolute;
+    left:100%;
+    top:0px;
+    width:200px;
+}
+
+.chatterbox-avatar-1 {
+    background-image:url(img/avatar/1.png);
+    background-position:left bottom;
+    background-repeat:no-repeat;
+    float:left;
+    width:50px; height:40px;
+}
