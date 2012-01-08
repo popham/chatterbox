@@ -1,0 +1,1 @@
+ruby chatterbox_director.rb -e dev -s -v
