@@ -52,10 +52,32 @@
 
   <div id="chatterbox-conversation-negotiation">
     <h2>Conversation Negotiation</h2>
+    <h3>Server to User Messages</h3>
+    <dl>
+      <dt>conversation</dt>
+      <dd></dd>
+      <dt>messages</dt>
+      <dd></dd>
+    </dl>
+    
+    <h3>User to Server Messages</h3>
+    <dl>
+      <dt>invite</dt>
+      <dd></dd>
+      <dt>speak</dt>
+      <dd></dd>
+      <dt>initialize</dt>
+      <dd></dd>
+      <dt>eject</dt>
+      <dd></dd>
+      <dt>close</dt>
+      <dd></dd>
+    </dl>
+
     <div class="hash message-from-1">
       <div class="pair">
-        <span class="key">event</span>
-        <span class="value">"initiate-conversation"</span>
+        <span class="key">command</span>
+        <span class="value">"invite"</span>
       </div>
       <div class="pair">
         <span class="key">targetConversants</span>
@@ -73,15 +95,15 @@
 
     <div class="hash message-to-1">
       <div class="pair">
-        <span class="key">event</span>
-        <span class="value">"connections-state-change"</span>
+        <span class="key">notice</span>
+        <span class="value">"conversation"</span>
       </div>
       <div class="pair">
         <span class="key">conversationId</span>
         <span class="value">18</span>
       </div>
       <div class="pair">
-        <span class="key">myConnection</span>
+        <span class="key">self</span>
         <div class="hash value">
           <div class="pair">
             <span class="key">userId</span>
@@ -95,10 +117,23 @@
             <span class="key">connectionState</span>
             <span class="value">"open"</span>
           </div>
+          <div class="pair">
+            <span class="key">ejectionState</span>
+            <div class="hash value">
+              <div class="pair">
+                <span class="key">votes</span>
+                <span class="value">0</span>
+              </div>
+              <div class="pair">
+                <span class="key">requiredVotes</span>
+                <span class="value">1</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="pair">
-        <span class="key">connections</span>
+        <span class="key">others</span>
         <div class="array value">
           <div class="hash value">
             <div class="pair">
@@ -114,11 +149,24 @@
               <span class="value">"open"</span>
             </div>
             <div class="pair">
+              <span class="key">ejectionState</span>
+              <div class="hash value">
+                <div class="pair">
+                  <span class="key">votes</span>
+                  <span class="value">0</span>
+                </div>
+                <div class="pair">
+                  <span class="key">requiredVotes</span>
+                  <span class="value">1</span>
+                </div>
+              </div>
+            </div>
+            <div class="pair">
               <span class="key">permission</span>
               <div class="hash value">
                 <div class="pair">
                   <span class="key">value</span>
-                  <span class="value">"ask"</span>
+                  <span class="value">"accept"</span>
                 </div>
                 <div class="pair">
                   <span class="key">scope</span>
@@ -127,409 +175,18 @@
               </div>
             </div>
           </div>
-          <div class="hash value">
-            <div class="pair">
-              <span class="key">userId</span>
-              <span class="value">3</span>
-            </div>
-            <div class="pair">
-              <span class="key">userName</span>
-              <span class="value">"Sudoer"</span>
-            </div>
-            <div class="pair">
-              <span class="key">connectionState</span>
-              <span class="value">"uninitialized"</span>
-            </div>
-            <div class="pair">
-              <span class="key">permission</span>
-              <div class="hash value">
-                <div class="pair">
-                  <span class="key">value</span>
-                  <span class="value">"accept"</span>
-                </div>
-                <div class="pair">
-                  <span class="key">scope</span>
-                  <span class="value">"individual"</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="hash value">
-            <div class="pair">
-              <span class="key">userId</span>
-              <span class="value">4</span>
-            </div>
-            <div class="pair">
-              <span class="key">userName</span>
-              <span class="value">"Schemer"</span>
-            </div>
-            <div class="pair">
-              <span class="key">connectionState</span>
-              <span class="value">"uninitialized"</span>
-            </div>
-            <div class="pair">
-              <span class="key">permission</span>
-              <div class="hash value">
-                <div class="pair">
-                  <span class="key">value</span>
-                  <span class="value">"accept"</span>
-                </div>
-                <div class="pair">
-                  <span class="key">scope</span>
-                  <span class="value">"individual"</span>
-                </div>
-              </div>
-            </div>
-          </div>
+          <div class="hash value">...</div>
+          <div class="hash value">...</div>
         </div>
       </div>
     </div>
-
-    <div class="hash message-to-2">
-      <div class="pair">
-        <span class="key">event</span>
-        <span class="value">"connections-state-change"</span>
-      </div>
-      <div class="pair">
-        <span class="key">conversationId</span>
-        <span class="value">18</span>
-      </div>
-      <div class="pair">
-        <span class="key">myConnection</span>
-        <div class="hash value">
-          <div class="pair">
-            <span class="key">userId</span>
-            <span class="value">2</span>
-          </div>
-          <div class="pair">
-            <span class="key">userName</span>
-            <span class="value">"Spiderman"</span>
-          </div>
-          <div class="pair">
-            <span class="key">connectionState</span>
-            <span class="value">"open"</span>
-          </div>
-        </div>
-      </div>
-      <div class="pair">
-        <span class="key">connections</span>
-        <div class="array value">
-          <div class="hash value">
-            <div class="pair">
-              <span class="key">userId</span>
-              <span class="value">1</span>
-            </div>
-            <div class="pair">
-              <span class="key">userName</span>
-              <span class="value">"Memothy"</span>
-            </div>
-            <div class="pair">
-              <span class="key">connectionState</span>
-              <span class="value">"open"</span>
-            </div>
-            <div class="pair">
-              <span class="key">permission</span>
-              <div class="hash value">
-                <div class="pair">
-                  <span class="key">value</span>
-                  <span class="value">"accept"</span>
-                </div>
-                <div class="pair">
-                  <span class="key">scope</span>
-                  <span class="value">"default"</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="hash value">
-            <div class="pair">
-              <span class="key">userId</span>
-              <span class="value">3</span>
-            </div>
-            <div class="pair">
-              <span class="key">userName</span>
-              <span class="value">"Sudoer"</span>
-            </div>
-            <div class="pair">
-              <span class="key">connectionState</span>
-              <span class="value">"uninitialized"</span>
-            </div>
-            <div class="pair">
-              <span class="key">permission</span>
-              <div class="hash value">
-                <div class="pair">
-                  <span class="key">value</span>
-                  <span class="value">"accept"</span>
-                </div>
-                <div class="pair">
-                  <span class="key">scope</span>
-                  <span class="value">"default"</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="hash value">
-            <div class="pair">
-              <span class="key">userId</span>
-              <span class="value">4</span>
-            </div>
-            <div class="pair">
-              <span class="key">userName</span>
-              <span class="value">"Schemer"</span>
-            </div>
-            <div class="pair">
-              <span class="key">connectionState</span>
-              <span class="value">"uninitialized"</span>
-            </div>
-            <div class="pair">
-              <span class="key">permission</span>
-              <div class="hash value">
-                <div class="pair">
-                  <span class="key">value</span>
-                  <span class="value">"ask"</span>
-                </div>
-                <div class="pair">
-                  <span class="key">scope</span>
-                  <span class="value">"individual"</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="hash message-to-3">
-      <div class="pair">
-        <span class="key">event</span>
-        <span class="value">"connections-state-change"</span>
-      </div>
-      <div class="pair">
-        <span class="key">conversationId</span>
-        <span class="value">18</span>
-      </div>
-      <div class="pair">
-        <span class="key">myConnection</span>
-        <div class="hash value">
-          <div class="pair">
-            <span class="key">userId</span>
-            <span class="value">3</span>
-          </div>
-          <div class="pair">
-            <span class="key">userName</span>
-            <span class="value">"Sudoer"</span>
-          </div>
-          <div class="pair">
-            <span class="key">connectionState</span>
-            <span class="value">"uninitialized"</span>
-          </div>
-        </div>
-      </div>
-      <div class="pair">
-        <span class="key">connections</span>
-        <div class="array value">
-          <div class="hash value">
-            <div class="pair">
-              <span class="key">userId</span>
-              <span class="value">1</span>
-            </div>
-            <div class="pair">
-              <span class="key">userName</span>
-              <span class="value">"Memothy"</span>
-            </div>
-            <div class="pair">
-              <span class="key">connectionState</span>
-              <span class="value">"open"</span>
-            </div>
-            <div class="pair">
-              <span class="key">permission</span>
-              <div class="hash value">
-                <div class="pair">
-                  <span class="key">value</span>
-                  <span class="value">"accept"</span>
-                </div>
-                <div class="pair">
-                  <span class="key">scope</span>
-                  <span class="value">"individual"</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="hash value">
-            <div class="pair">
-              <span class="key">userId</span>
-              <span class="value">2</span>
-            </div>
-            <div class="pair">
-              <span class="key">userName</span>
-              <span class="value">"Spiderman"</span>
-            </div>
-            <div class="pair">
-              <span class="key">connectionState</span>
-              <span class="value">"open"</span>
-            </div>
-            <div class="pair">
-              <span class="key">permission</span>
-              <div class="hash value">
-                <div class="pair">
-                  <span class="key">value</span>
-                  <span class="value">"ask"</span>
-                </div>
-                <div class="pair">
-                  <span class="key">scope</span>
-                  <span class="value">"default"</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="hash value">
-            <div class="pair">
-              <span class="key">userId</span>
-              <span class="value">4</span>
-            </div>
-            <div class="pair">
-              <span class="key">userName</span>
-              <span class="value">"Schemer"</span>
-            </div>
-            <div class="pair">
-              <span class="key">connectionState</span>
-              <span class="value">"uninitialized"</span>
-            </div>
-            <div class="pair">
-              <span class="key">permission</span>
-              <div class="hash value">
-                <div class="pair">
-                  <span class="key">value</span>
-                  <span class="value">"accept"</span>
-                </div>
-                <div class="pair">
-                  <span class="key">scope</span>
-                  <span class="value">"individual"</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="hash message-to-4">
-      <div class="pair">
-        <span class="key">event</span>
-        <span class="value">"connections-state-change"</span>
-      </div>
-      <div class="pair">
-        <span class="key">conversationId</span>
-        <span class="value">18</span>
-      </div>
-      <div class="pair">
-        <span class="key">myConnection</span>
-        <div class="hash value">
-          <div class="pair">
-            <span class="key">userId</span>
-            <span class="value">4</span>
-          </div>
-          <div class="pair">
-            <span class="key">userName</span>
-            <span class="value">"Schemer"</span>
-          </div>
-          <div class="pair">
-            <span class="key">connectionState</span>
-            <span class="value">"uninitialized"</span>
-          </div>
-        </div>
-      </div>
-      <div class="pair">
-        <span class="key">connections</span>
-        <div class="array value">
-          <div class="hash value">
-            <div class="pair">
-              <span class="key">userId</span>
-              <span class="value">1</span>
-            </div>
-            <div class="pair">
-              <span class="key">userName</span>
-              <span class="value">"Memothy"</span>
-            </div>
-            <div class="pair">
-              <span class="key">connectionState</span>
-              <span class="value">"open"</span>
-            </div>
-            <div class="pair">
-              <span class="key">permission</span>
-              <div class="hash value">
-                <div class="pair">
-                  <span class="key">value</span>
-                  <span class="value">"ask"</span>
-                </div>
-                <div class="pair">
-                  <span class="key">scope</span>
-                  <span class="value">"default"</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="hash value">
-            <div class="pair">
-              <span class="key">userId</span>
-              <span class="value">2</span>
-            </div>
-            <div class="pair">
-              <span class="key">userName</span>
-              <span class="value">"Spiderman"</span>
-            </div>
-            <div class="pair">
-              <span class="key">connectionState</span>
-              <span class="value">"open"</span>
-            </div>
-            <div class="pair">
-              <span class="key">permission</span>
-              <div class="hash value">
-                <div class="pair">
-                  <span class="key">value</span>
-                  <span class="value">"ask"</span>
-                </div>
-                <div class="pair">
-                  <span class="key">scope</span>
-                  <span class="value">"default"</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="hash value">
-            <div class="pair">
-              <span class="key">userId</span>
-              <span class="value">3</span>
-            </div>
-            <div class="pair">
-              <span class="key">userName</span>
-              <span class="value">"Sudoer"</span>
-            </div>
-            <div class="pair">
-              <span class="key">connectionState</span>
-              <span class="value">"uninitialized"</span>
-            </div>
-            <div class="pair">
-              <span class="key">permission</span>
-              <div class="hash value">
-                <div class="pair">
-                  <span class="key">value</span>
-                  <span class="value">"ask"</span>
-                </div>
-                <div class="pair">
-                  <span class="key">scope</span>
-                  <span class="value">"default"</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div class="hash message-to-2">...</div>
+    <div class="hash message-to-3">...</div>
+    <div class="hash message-to-4">...</div>
 
     <div class="hash message-from-1">
       <div class="pair">
-        <span class="key">event</span>
+        <span class="key">command</span>
         <span class="value">"speak"</span>
       </div>
       <div class="pair">
@@ -544,25 +201,25 @@
 
     <div class="hash message-to-all">
       <div class="pair">
-        <span class="key">event</span>
-        <span class="value">"speak"</span>
+        <span class="key">notice</span>
+        <span class="value">"messages"</span>
       </div>
       <div class="pair">
         <span class="key">conversationId</span>
         <span class="value">18</span>
       </div>
       <div class="pair">
-        <span class="key">userId</span>
-        <span class="value">1</span>
-      </div>
-      <div class="pair">
-        <span class="key">userName</span>
-        <span class="value">Memothy</span>
-      </div>
-      <div class="pair">
         <span class="key">messages</span>
         <div class="array value">
           <div class="hash value">
+            <div class="pair">
+              <span class="key">userId</span>
+              <span class="value">1</span>
+            </div>
+            <div class="pair">
+              <span class="key">userName</span>
+              <span class="value">Memothy</span>
+            </div>
             <div class="pair">
               <span class="key">timeStamp</span>
               <span class="value">128474849</span>
@@ -579,7 +236,7 @@
     <div class="hash message-from-3">
       <div class="hash value">
         <div class="pair">
-          <span class="key">event</span>
+          <span class="key">command</span>
           <span class="value">"initialize"</span>
         </div>
       </div>
@@ -587,15 +244,15 @@
 
     <div class="hash message-to-1">
       <div class="pair">
-        <span class="key">event</span>
-        <span class="value">"connections-state-change"</span>
+        <span class="key">notice</span>
+        <span class="value">"conversation"</span>
       </div>
       <div class="pair">
         <span class="key">conversationId</span>
         <span class="value">18</span>
       </div>
       <div class="pair">
-        <span class="key">myConnection</span>
+        <span class="key">self</span>
         <div class="hash value">
           <div class="pair">
             <span class="key">userId</span>
@@ -609,38 +266,25 @@
             <span class="key">connectionState</span>
             <span class="value">"open"</span>
           </div>
-        </div>
-      </div>
-      <div class="pair">
-        <span class="key">connections</span>
-        <div class="array value">
-          <div class="hash value">
-            <div class="pair">
-              <span class="key">userId</span>
-              <span class="value">2</span>
-            </div>
-            <div class="pair">
-              <span class="key">userName</span>
-              <span class="value">"Spiderman"</span>
-            </div>
-            <div class="pair">
-              <span class="key">connectionState</span>
-              <span class="value">"open"</span>
-            </div>
-            <div class="pair">
-              <span class="key">permission</span>
-              <div class="hash value">
-                <div class="pair">
-                  <span class="key">value</span>
-                  <span class="value">"ask"</span>
-                </div>
-                <div class="pair">
-                  <span class="key">scope</span>
-                  <span class="value">"default"</span>
-                </div>
+          <div class="pair">
+            <span class="key">ejectionState</span>
+            <div class="hash value">
+              <div class="pair">
+                <span class="key">votes</span>
+                <span class="value">0</span>
+              </div>
+              <div class="pair">
+                <span class="key">requiredVotes</span>
+                <span class="value">2</span>
               </div>
             </div>
           </div>
+        </div>
+      </div>
+      <div class="pair">
+        <span class="key">others</span>
+        <div class="array value">
+          <div class="hash value">...</div>
           <div class="hash value">
             <div class="pair">
               <span class="key">userId</span>
@@ -655,31 +299,17 @@
               <span class="value">"open"</span>
             </div>
             <div class="pair">
-              <span class="key">permission</span>
+              <span class="key">ejectionState</span>
               <div class="hash value">
                 <div class="pair">
-                  <span class="key">value</span>
-                  <span class="value">"accept"</span>
+                  <span class="key">votes</span>
+                  <span class="value">0</span>
                 </div>
                 <div class="pair">
-                  <span class="key">scope</span>
-                  <span class="value">"individual"</span>
+                  <span class="key">requiredVotes</span>
+                  <span class="value">2</span>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="hash value">
-            <div class="pair">
-              <span class="key">userId</span>
-              <span class="value">4</span>
-            </div>
-            <div class="pair">
-              <span class="key">userName</span>
-              <span class="value">"Schemer"</span>
-            </div>
-            <div class="pair">
-              <span class="key">connectionState</span>
-              <span class="value">"uninitialized"</span>
             </div>
             <div class="pair">
               <span class="key">permission</span>
@@ -695,355 +325,17 @@
               </div>
             </div>
           </div>
+          <div class="hash value">...</div>
         </div>
       </div>
     </div>
-
-    <div class="hash message-to-2">
-      <div class="pair">
-        <span class="key">event</span>
-        <span class="value">"connections-state-change"</span>
-      </div>
-      <div class="pair">
-        <span class="key">conversationId</span>
-        <span class="value">18</span>
-      </div>
-      <div class="pair">
-        <span class="key">myConnection</span>
-        <div class="hash value">
-          <div class="pair">
-            <span class="key">userId</span>
-            <span class="value">2</span>
-          </div>
-          <div class="pair">
-            <span class="key">userName</span>
-            <span class="value">"Spiderman"</span>
-          </div>
-          <div class="pair">
-            <span class="key">connectionState</span>
-            <span class="value">"open"</span>
-          </div>
-        </div>
-      </div>
-      <div class="pair">
-        <span class="key">connections</span>
-        <div class="array value">
-          <div class="hash value">
-            <div class="pair">
-              <span class="key">userId</span>
-              <span class="value">1</span>
-            </div>
-            <div class="pair">
-              <span class="key">userName</span>
-              <span class="value">"Memothy"</span>
-            </div>
-            <div class="pair">
-              <span class="key">connectionState</span>
-              <span class="value">"open"</span>
-            </div>
-            <div class="pair">
-              <span class="key">permission</span>
-              <div class="hash value">
-                <div class="pair">
-                  <span class="key">value</span>
-                  <span class="value">"accept"</span>
-                </div>
-                <div class="pair">
-                  <span class="key">scope</span>
-                  <span class="value">"default"</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="hash value">
-            <div class="pair">
-              <span class="key">userId</span>
-              <span class="value">3</span>
-            </div>
-            <div class="pair">
-              <span class="key">userName</span>
-              <span class="value">"Sudoer"</span>
-            </div>
-            <div class="pair">
-              <span class="key">connectionState</span>
-              <span class="value">"open"</span>
-            </div>
-            <div class="pair">
-              <span class="key">permission</span>
-              <div class="hash value">
-                <div class="pair">
-                  <span class="key">value</span>
-                  <span class="value">"accept"</span>
-                </div>
-                <div class="pair">
-                  <span class="key">scope</span>
-                  <span class="value">"default"</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="hash value">
-            <div class="pair">
-              <span class="key">userId</span>
-              <span class="value">4</span>
-            </div>
-            <div class="pair">
-              <span class="key">userName</span>
-              <span class="value">"Schemer"</span>
-            </div>
-            <div class="pair">
-              <span class="key">connectionState</span>
-              <span class="value">"uninitialized"</span>
-            </div>
-            <div class="pair">
-              <span class="key">permission</span>
-              <div class="hash value">
-                <div class="pair">
-                  <span class="key">value</span>
-                  <span class="value">"ask"</span>
-                </div>
-                <div class="pair">
-                  <span class="key">scope</span>
-                  <span class="value">"individual"</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="hash message-to-3">
-      <div class="pair">
-        <span class="key">event</span>
-        <span class="value">"connections-state-change"</span>
-      </div>
-      <div class="pair">
-        <span class="key">conversationId</span>
-        <span class="value">18</span>
-      </div>
-      <div class="pair">
-        <span class="key">myConnection</span>
-        <div class="hash value">
-          <div class="pair">
-            <span class="key">userId</span>
-            <span class="value">3</span>
-          </div>
-          <div class="pair">
-            <span class="key">userName</span>
-            <span class="value">"Sudoer"</span>
-          </div>
-          <div class="pair">
-            <span class="key">connectionState</span>
-            <span class="value">"open"</span>
-          </div>
-        </div>
-      </div>
-      <div class="pair">
-        <span class="key">connections</span>
-        <div class="array value">
-          <div class="hash value">
-            <div class="pair">
-              <span class="key">userId</span>
-              <span class="value">1</span>
-            </div>
-            <div class="pair">
-              <span class="key">userName</span>
-              <span class="value">"Memothy"</span>
-            </div>
-            <div class="pair">
-              <span class="key">connectionState</span>
-              <span class="value">"open"</span>
-            </div>
-            <div class="pair">
-              <span class="key">permission</span>
-              <div class="hash value">
-                <div class="pair">
-                  <span class="key">value</span>
-                  <span class="value">"accept"</span>
-                </div>
-                <div class="pair">
-                  <span class="key">scope</span>
-                  <span class="value">"individual"</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="hash value">
-            <div class="pair">
-              <span class="key">userId</span>
-              <span class="value">2</span>
-            </div>
-            <div class="pair">
-              <span class="key">userName</span>
-              <span class="value">"Spiderman"</span>
-            </div>
-            <div class="pair">
-              <span class="key">connectionState</span>
-              <span class="value">"open"</span>
-            </div>
-            <div class="pair">
-              <span class="key">permission</span>
-              <div class="hash value">
-                <div class="pair">
-                  <span class="key">value</span>
-                  <span class="value">"ask"</span>
-                </div>
-                <div class="pair">
-                  <span class="key">scope</span>
-                  <span class="value">"default"</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="hash value">
-            <div class="pair">
-              <span class="key">userId</span>
-              <span class="value">4</span>
-            </div>
-            <div class="pair">
-              <span class="key">userName</span>
-              <span class="value">"Schemer"</span>
-            </div>
-            <div class="pair">
-              <span class="key">connectionState</span>
-              <span class="value">"uninitialized"</span>
-            </div>
-            <div class="pair">
-              <span class="key">permission</span>
-              <div class="hash value">
-                <div class="pair">
-                  <span class="key">value</span>
-                  <span class="value">"accept"</span>
-                </div>
-                <div class="pair">
-                  <span class="key">scope</span>
-                  <span class="value">"individual"</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="hash message-to-4">
-      <div class="pair">
-        <span class="key">event</span>
-        <span class="value">"connections-state-change"</span>
-      </div>
-      <div class="pair">
-        <span class="key">conversationId</span>
-        <span class="value">18</span>
-      </div>
-      <div class="pair">
-        <span class="key">myConnection</span>
-        <div class="hash value">
-          <div class="pair">
-            <span class="key">userId</span>
-            <span class="value">4</span>
-          </div>
-          <div class="pair">
-            <span class="key">userName</span>
-            <span class="value">"Schemer"</span>
-          </div>
-          <div class="pair">
-            <span class="key">connectionState</span>
-            <span class="value">"uninitialized"</span>
-          </div>
-        </div>
-      </div>
-      <div class="pair">
-        <span class="key">connections</span>
-        <div class="array value">
-          <div class="hash value">
-            <div class="pair">
-              <span class="key">userId</span>
-              <span class="value">1</span>
-            </div>
-            <div class="pair">
-              <span class="key">userName</span>
-              <span class="value">"Memothy"</span>
-            </div>
-            <div class="pair">
-              <span class="key">connectionState</span>
-              <span class="value">"open"</span>
-            </div>
-            <div class="pair">
-              <span class="key">permission</span>
-              <div class="hash value">
-                <div class="pair">
-                  <span class="key">value</span>
-                  <span class="value">"ask"</span>
-                </div>
-                <div class="pair">
-                  <span class="key">scope</span>
-                  <span class="value">"default"</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="hash value">
-            <div class="pair">
-              <span class="key">userId</span>
-              <span class="value">2</span>
-            </div>
-            <div class="pair">
-              <span class="key">userName</span>
-              <span class="value">"Spiderman"</span>
-            </div>
-            <div class="pair">
-              <span class="key">connectionState</span>
-              <span class="value">"open"</span>
-            </div>
-            <div class="pair">
-              <span class="key">permission</span>
-              <div class="hash value">
-                <div class="pair">
-                  <span class="key">value</span>
-                  <span class="value">"ask"</span>
-                </div>
-                <div class="pair">
-                  <span class="key">scope</span>
-                  <span class="value">"default"</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="hash value">
-            <div class="pair">
-              <span class="key">userId</span>
-              <span class="value">3</span>
-            </div>
-            <div class="pair">
-              <span class="key">userName</span>
-              <span class="value">"Sudoer"</span>
-            </div>
-            <div class="pair">
-              <span class="key">connectionState</span>
-              <span class="value">"open"</span>
-            </div>
-            <div class="pair">
-              <span class="key">permission</span>
-              <div class="hash value">
-                <div class="pair">
-                  <span class="key">value</span>
-                  <span class="value">"ask"</span>
-                </div>
-                <div class="pair">
-                  <span class="key">scope</span>
-                  <span class="value">"default"</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div class="hash message-to-2">...</div>
+    <div class="hash message-to-3">...</div>
+    <div class="hash message-to-4">...</div>
 
     <div class="hash message-from-3">
       <div class="pair">
-        <span class="key">event</span>
+        <span class="key">command</span>
         <span class="value">"speak"</span>
       </div>
       <div class="pair">
@@ -1058,7 +350,7 @@
 
     <div class="hash message-from-2">
       <div class="pair">
-        <span class="key">event</span>
+        <span class="key">command</span>
         <span class="value">"speak"</span>
       </div>
       <div class="pair">
@@ -1071,9 +363,61 @@
       </div>
     </div>
 
+    <div class="hash message-to-all">
+      <div class="pair">
+        <span class="key">notice</span>
+        <span class="value">"messages"</span>
+      </div>
+      <div class="pair">
+        <span class="key">conversationId</span>
+        <span class="value">18</span>
+      </div>
+      <div class="pair">
+        <span class="key">messages</span>
+        <div class="array value">
+          <div class="hash value">
+            <div class="pair">
+              <span class="key">userId</span>
+              <span class="value">3</span>
+            </div>
+            <div class="pair">
+              <span class="key">userName</span>
+              <span class="value">Sudoer</span>
+            </div>
+            <div class="pair">
+              <span class="key">timeStamp</span>
+              <span class="value">12847593</span>
+            </div>
+            <div class="pair">
+              <span class="key">message</span>
+              <span class="value">"sudo make me a sandwich."</span>
+            </div>
+          </div>
+          <div class="hash value">
+            <div class="pair">
+              <span class="key">userId</span>
+              <span class="value">2</span>
+            </div>
+            <div class="pair">
+              <span class="key">userName</span>
+              <span class="value">Spiderman</span>
+            </div>
+            <div class="pair">
+              <span class="key">timeStamp</span>
+              <span class="value">12847998</span>
+            </div>
+            <div class="pair">
+              <span class="key">message</span>
+              <span class="value">"sudo Sudoer isn't welcome here."</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="hash message-from-2">
       <div class="pair">
-        <span class="key">event</span>
+        <span class="key">command</span>
         <span class="value">"eject"</span>
       </div>
       <div class="pair">
@@ -1088,60 +432,15 @@
 
     <div class="hash message-to-1">
       <div class="pair">
-        <span class="key">event</span>
-        <span class="value">"confirm-ejection"</span>
+        <span class="key">notice</span>
+        <span class="value">"conversation"</span>
       </div>
       <div class="pair">
         <span class="key">conversationId</span>
         <span class="value">18</span>
       </div>
       <div class="pair">
-        <span class="key">ejecteeId</span>
-        <span class="value">3</span>
-      </div>
-      <div class="pair">
-        <span class="key">ejecterId</span>
-        <span class="value">2</span>
-      </div>
-    </div>
-
-    <div class="hash message-to-4">
-      <div class="pair">
-        <span class="key">event</span>
-        <span class="value">"confirm-ejection"</span>
-      </div>
-      <div class="pair">
-        <span class="key">conversationId</span>
-        <span class="value">18</span>
-      </div>
-      <div class="pair">
-        <span class="key">ejecteeId</span>
-        <span class="value">3</span>
-      </div>
-      <div class="pair">
-        <span class="key">ejecterId</span>
-        <span class="value">2</span>
-      </div>
-    </div>
-
-    <div class="hash message-from-4">
-      <div class="pair">
-        <span class="key">event</span>
-        <span class="value">"initialize"</span>
-      </div>
-    </div>
-
-    <div class="hash message-to-1">
-      <div class="pair">
-        <span class="key">event</span>
-        <span class="value">"connections-state-change"</span>
-      </div>
-      <div class="pair">
-        <span class="key">conversationId</span>
-        <span class="value">18</span>
-      </div>
-      <div class="pair">
-        <span class="key">myConnection</span>
+        <span class="key">self</span>
         <div class="hash value">
           <div class="pair">
             <span class="key">userId</span>
@@ -1155,38 +454,25 @@
             <span class="key">connectionState</span>
             <span class="value">"open"</span>
           </div>
-        </div>
-      </div>
-      <div class="pair">
-        <span class="key">connections</span>
-        <div class="array value">
-          <div class="hash value">
-            <div class="pair">
-              <span class="key">userId</span>
-              <span class="value">2</span>
-            </div>
-            <div class="pair">
-              <span class="key">userName</span>
-              <span class="value">"Spiderman"</span>
-            </div>
-            <div class="pair">
-              <span class="key">connectionState</span>
-              <span class="value">"open"</span>
-            </div>
-            <div class="pair">
-              <span class="key">permission</span>
-              <div class="hash value">
-                <div class="pair">
-                  <span class="key">value</span>
-                  <span class="value">"ask"</span>
-                </div>
-                <div class="pair">
-                  <span class="key">scope</span>
-                  <span class="value">"default"</span>
-                </div>
+          <div class="pair">
+            <span class="key">ejectionState</span>
+            <div class="hash value">
+              <div class="pair">
+                <span class="key">votes</span>
+                <span class="value">0</span>
+              </div>
+              <div class="pair">
+                <span class="key">requiredVotes</span>
+                <span class="value">2</span>
               </div>
             </div>
           </div>
+        </div>
+      </div>
+      <div class="pair">
+        <span class="key">others</span>
+        <div class="array value">
+          <div class="hash value">...</div>
           <div class="hash value">
             <div class="pair">
               <span class="key">userId</span>
@@ -1201,6 +487,19 @@
               <span class="value">"open"</span>
             </div>
             <div class="pair">
+              <span class="key">ejectionState</span>
+              <div class="hash value">
+                <div class="pair">
+                  <span class="key">votes</span>
+                  <span class="value">1</span>
+                </div>
+                <div class="pair">
+                  <span class="key">requiredVotes</span>
+                  <span class="value">2</span>
+                </div>
+              </div>
+            </div>
+            <div class="pair">
               <span class="key">permission</span>
               <div class="hash value">
                 <div class="pair">
@@ -1214,6 +513,64 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+    <div class="hash message-to-2">...</div>
+    <div class="hash message-to-3">...</div>
+    <div class="hash message-to-4">...</div>
+
+    <div class="hash message-from-4">
+      <div class="pair">
+        <span class="key">command</span>
+        <span class="value">"initialize"</span>
+      </div>
+    </div>
+
+    <div class="hash message-to-1">
+      <div class="pair">
+        <span class="key">notice</span>
+        <span class="value">"conversation"</span>
+      </div>
+      <div class="pair">
+        <span class="key">conversationId</span>
+        <span class="value">18</span>
+      </div>
+      <div class="pair">
+        <span class="key">self</span>
+        <div class="hash value">
+          <div class="pair">
+            <span class="key">userId</span>
+            <span class="value">1</span>
+          </div>
+          <div class="pair">
+            <span class="key">userName</span>
+            <span class="value">"Memothy"</span>
+          </div>
+          <div class="pair">
+            <span class="key">connectionState</span>
+            <span class="value">"open"</span>
+          </div>
+          <div class="pair">
+            <span class="key">ejectionState</span>
+            <div class="hash value">
+              <div class="pair">
+                <span class="key">votes</span>
+                <span class="value">0</span>
+              </div>
+              <div class="pair">
+                <span class="key">requiredVotes</span>
+                <span class="value">3</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pair">
+        <span class="key">others</span>
+        <div class="array value">
+          <div class="hash value">...</div>
+          <div class="hash value">...</div>
           <div class="hash value">
             <div class="pair">
               <span class="key">userId</span>
@@ -1228,232 +585,17 @@
               <span class="value">"open"</span>
             </div>
             <div class="pair">
-              <span class="key">permission</span>
+              <span class="key">ejectionState</span>
               <div class="hash value">
                 <div class="pair">
-                  <span class="key">value</span>
-                  <span class="value">"accept"</span>
+                  <span class="key">votes</span>
+                  <span class="value">0</span>
                 </div>
                 <div class="pair">
-                  <span class="key">scope</span>
-                  <span class="value">"individual"</span>
+                  <span class="key">requiredVotes</span>
+                  <span class="value">3</span>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="hash message-to-2">
-      <div class="pair">
-        <span class="key">event</span>
-        <span class="value">"connections-state-change"</span>
-      </div>
-      <div class="pair">
-        <span class="key">conversationId</span>
-        <span class="value">18</span>
-      </div>
-      <div class="pair">
-        <span class="key">myConnection</span>
-        <div class="hash value">
-          <div class="pair">
-            <span class="key">userId</span>
-            <span class="value">2</span>
-          </div>
-          <div class="pair">
-            <span class="key">userName</span>
-            <span class="value">"Spiderman"</span>
-          </div>
-          <div class="pair">
-            <span class="key">connectionState</span>
-            <span class="value">"open"</span>
-          </div>
-        </div>
-      </div>
-      <div class="pair">
-        <span class="key">connections</span>
-        <div class="array value">
-          <div class="hash value">
-            <div class="pair">
-              <span class="key">userId</span>
-              <span class="value">1</span>
-            </div>
-            <div class="pair">
-              <span class="key">userName</span>
-              <span class="value">"Memothy"</span>
-            </div>
-            <div class="pair">
-              <span class="key">connectionState</span>
-              <span class="value">"open"</span>
-            </div>
-            <div class="pair">
-              <span class="key">permission</span>
-              <div class="hash value">
-                <div class="pair">
-                  <span class="key">value</span>
-                  <span class="value">"accept"</span>
-                </div>
-                <div class="pair">
-                  <span class="key">scope</span>
-                  <span class="value">"default"</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="hash value">
-            <div class="pair">
-              <span class="key">userId</span>
-              <span class="value">3</span>
-            </div>
-            <div class="pair">
-              <span class="key">userName</span>
-              <span class="value">"Sudoer"</span>
-            </div>
-            <div class="pair">
-              <span class="key">connectionState</span>
-              <span class="value">"open"</span>
-            </div>
-            <div class="pair">
-              <span class="key">permission</span>
-              <div class="hash value">
-                <div class="pair">
-                  <span class="key">value</span>
-                  <span class="value">"accept"</span>
-                </div>
-                <div class="pair">
-                  <span class="key">scope</span>
-                  <span class="value">"default"</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="hash value">
-            <div class="pair">
-              <span class="key">userId</span>
-              <span class="value">4</span>
-            </div>
-            <div class="pair">
-              <span class="key">userName</span>
-              <span class="value">"Schemer"</span>
-            </div>
-            <div class="pair">
-              <span class="key">connectionState</span>
-              <span class="value">"open"</span>
-            </div>
-            <div class="pair">
-              <span class="key">permission</span>
-              <div class="hash value">
-                <div class="pair">
-                  <span class="key">value</span>
-                  <span class="value">"ask"</span>
-                </div>
-                <div class="pair">
-                  <span class="key">scope</span>
-                  <span class="value">"individual"</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="hash message-to-3">
-      <div class="pair">
-        <span class="key">event</span>
-        <span class="value">"connections-state-change"</span>
-      </div>
-      <div class="pair">
-        <span class="key">conversationId</span>
-        <span class="value">18</span>
-      </div>
-      <div class="pair">
-        <span class="key">myConnection</span>
-        <div class="hash value">
-          <div class="pair">
-            <span class="key">userId</span>
-            <span class="value">3</span>
-          </div>
-          <div class="pair">
-            <span class="key">userName</span>
-            <span class="value">"Sudoer"</span>
-          </div>
-          <div class="pair">
-            <span class="key">connectionState</span>
-            <span class="value">"open"</span>
-          </div>
-        </div>
-      </div>
-      <div class="pair">
-        <span class="key">connections</span>
-        <div class="array value">
-          <div class="hash value">
-            <div class="pair">
-              <span class="key">userId</span>
-              <span class="value">1</span>
-            </div>
-            <div class="pair">
-              <span class="key">userName</span>
-              <span class="value">"Memothy"</span>
-            </div>
-            <div class="pair">
-              <span class="key">connectionState</span>
-              <span class="value">"open"</span>
-            </div>
-            <div class="pair">
-              <span class="key">permission</span>
-              <div class="hash value">
-                <div class="pair">
-                  <span class="key">value</span>
-                  <span class="value">"accept"</span>
-                </div>
-                <div class="pair">
-                  <span class="key">scope</span>
-                  <span class="value">"individual"</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="hash value">
-            <div class="pair">
-              <span class="key">userId</span>
-              <span class="value">2</span>
-            </div>
-            <div class="pair">
-              <span class="key">userName</span>
-              <span class="value">"Spiderman"</span>
-            </div>
-            <div class="pair">
-              <span class="key">connectionState</span>
-              <span class="value">"open"</span>
-            </div>
-            <div class="pair">
-              <span class="key">permission</span>
-              <div class="hash value">
-                <div class="pair">
-                  <span class="key">value</span>
-                  <span class="value">"ask"</span>
-                </div>
-                <div class="pair">
-                  <span class="key">scope</span>
-                  <span class="value">"default"</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="hash value">
-            <div class="pair">
-              <span class="key">userId</span>
-              <span class="value">4</span>
-            </div>
-            <div class="pair">
-              <span class="key">userName</span>
-              <span class="value">"Schemer"</span>
-            </div>
-            <div class="pair">
-              <span class="key">connectionState</span>
-              <span class="value">"open"</span>
             </div>
             <div class="pair">
               <span class="key">permission</span>
@@ -1472,124 +614,13 @@
         </div>
       </div>
     </div>
-
-    <div class="hash message-to-4">
-      <div class="pair">
-        <span class="key">event</span>
-        <span class="value">"connections-state-change"</span>
-      </div>
-      <div class="pair">
-        <span class="key">conversationId</span>
-        <span class="value">18</span>
-      </div>
-      <div class="pair">
-        <span class="key">myConnection</span>
-        <div class="hash value">
-          <div class="pair">
-            <span class="key">userId</span>
-            <span class="value">4</span>
-          </div>
-          <div class="pair">
-            <span class="key">userName</span>
-            <span class="value">"Schemer"</span>
-          </div>
-          <div class="pair">
-            <span class="key">connectionState</span>
-            <span class="value">"open"</span>
-          </div>
-        </div>
-      </div>
-      <div class="pair">
-        <span class="key">connections</span>
-        <div class="array value">
-          <div class="hash value">
-            <div class="pair">
-              <span class="key">userId</span>
-              <span class="value">1</span>
-            </div>
-            <div class="pair">
-              <span class="key">userName</span>
-              <span class="value">"Memothy"</span>
-            </div>
-            <div class="pair">
-              <span class="key">connectionState</span>
-              <span class="value">"open"</span>
-            </div>
-            <div class="pair">
-              <span class="key">permission</span>
-              <div class="hash value">
-                <div class="pair">
-                  <span class="key">value</span>
-                  <span class="value">"ask"</span>
-                </div>
-                <div class="pair">
-                  <span class="key">scope</span>
-                  <span class="value">"default"</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="hash value">
-            <div class="pair">
-              <span class="key">userId</span>
-              <span class="value">2</span>
-            </div>
-            <div class="pair">
-              <span class="key">userName</span>
-              <span class="value">"Spiderman"</span>
-            </div>
-            <div class="pair">
-              <span class="key">connectionState</span>
-              <span class="value">"open"</span>
-            </div>
-            <div class="pair">
-              <span class="key">permission</span>
-              <div class="hash value">
-                <div class="pair">
-                  <span class="key">value</span>
-                  <span class="value">"ask"</span>
-                </div>
-                <div class="pair">
-                  <span class="key">scope</span>
-                  <span class="value">"default"</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="hash value">
-            <div class="pair">
-              <span class="key">userId</span>
-              <span class="value">3</span>
-            </div>
-            <div class="pair">
-              <span class="key">userName</span>
-              <span class="value">"Sudoer"</span>
-            </div>
-            <div class="pair">
-              <span class="key">connectionState</span>
-              <span class="value">"open"</span>
-            </div>
-            <div class="pair">
-              <span class="key">permission</span>
-              <div class="hash value">
-                <div class="pair">
-                  <span class="key">value</span>
-                  <span class="value">"ask"</span>
-                </div>
-                <div class="pair">
-                  <span class="key">scope</span>
-                  <span class="value">"default"</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div class="hash message-to-2">...</div>
+    <div class="hash message-to-3">...</div>
+    <div class="hash message-to-4">...</div>
 
     <div class="hash message-from-1">
       <div class="pair">
-        <span class="key">event</span>
+        <span class="key">command</span>
         <span class="value">"eject"</span>
       </div>
       <div class="pair">
@@ -1602,9 +633,100 @@
       </div>
     </div>
 
+    <div class="hash message-to-1">
+      <div class="pair">
+        <span class="key">notice</span>
+        <span class="value">"conversation"</span>
+      </div>
+      <div class="pair">
+        <span class="key">conversationId</span>
+        <span class="value">18</span>
+      </div>
+      <div class="pair">
+        <span class="key">self</span>
+        <div class="hash value">
+          <div class="pair">
+            <span class="key">userId</span>
+            <span class="value">1</span>
+          </div>
+          <div class="pair">
+            <span class="key">userName</span>
+            <span class="value">"Memothy"</span>
+          </div>
+          <div class="pair">
+            <span class="key">connectionState</span>
+            <span class="value">"open"</span>
+          </div>
+          <div class="pair">
+            <span class="key">ejectionState</span>
+            <div class="hash value">
+              <div class="pair">
+                <span class="key">votes</span>
+                <span class="value">0</span>
+              </div>
+              <div class="pair">
+                <span class="key">requiredVotes</span>
+                <span class="value">3</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pair">
+        <span class="key">others</span>
+        <div class="array value">
+          <div class="hash value">...</div>
+          <div class="hash value">
+            <div class="pair">
+              <span class="key">userId</span>
+              <span class="value">3</span>
+            </div>
+            <div class="pair">
+              <span class="key">userName</span>
+              <span class="value">"Sudoer"</span>
+            </div>
+            <div class="pair">
+              <span class="key">connectionState</span>
+              <span class="value">"open"</span>
+            </div>
+            <div class="pair">
+              <span class="key">ejectionState</span>
+              <div class="hash value">
+                <div class="pair">
+                  <span class="key">votes</span>
+                  <span class="value">2</span>
+                </div>
+                <div class="pair">
+                  <span class="key">requiredVotes</span>
+                  <span class="value">3</span>
+                </div>
+              </div>
+            </div>
+            <div class="pair">
+              <span class="key">permission</span>
+              <div class="hash value">
+                <div class="pair">
+                  <span class="key">value</span>
+                  <span class="value">"accept"</span>
+                </div>
+                <div class="pair">
+                  <span class="key">scope</span>
+                  <span class="value">"individual"</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="hash value">...</div>
+        </div>
+      </div>
+    </div>
+    <div class="hash message-to-2">...</div>
+    <div class="hash message-to-3">...</div>
+    <div class="hash message-to-4">...</div>
+
     <div class="hash message-from-3">
       <div class="pair">
-        <span class="key">event</span>
+        <span class="key">command</span>
         <span class="value">"speak"</span>
       </div>
       <div class="pair">
@@ -1619,25 +741,25 @@
 
     <div class="hash message-to-all">
       <div class="pair">
-        <span class="key">event</span>
-        <span class="value">"speak"</span>
+        <span class="key">notice</span>
+        <span class="value">"messages"</span>
       </div>
       <div class="pair">
         <span class="key">conversationId</span>
         <span class="value">18</span>
       </div>
       <div class="pair">
-        <span class="key">userId</span>
-        <span class="value">3</span>
-      </div>
-      <div class="pair">
-        <span class="key">userName</span>
-        <span class="value">Sudoer</span>
-      </div>
-      <div class="pair">
         <span class="key">messages</span>
         <div class="array value">
           <div class="hash value">
+            <div class="pair">
+              <span class="key">userId</span>
+              <span class="value">3</span>
+            </div>
+            <div class="pair">
+              <span class="key">userName</span>
+              <span class="value">Sudoer</span>
+            </div>
             <div class="pair">
               <span class="key">timeStamp</span>
               <span class="value">12847693</span>
@@ -1651,480 +773,9 @@
       </div>
     </div>
 
-    <div class="hash message-from-4">
+    <div class="hash message-from-3">
       <div class="pair">
-        <span class="key">event</span>
-        <span class="value">"eject"</span>
-      </div>
-      <div class="pair">
-        <span class="key">conversationId</span>
-        <span class="value">18</span>
-      </div>
-      <div class="pair">
-        <span class="key">ejecteeId</span>
-        <span class="value">3</span>
-      </div>
-    </div>
-
-    <div class="hash message-to-1">
-      <div class="pair">
-        <span class="key">event</span>
-        <span class="value">"connections-state-change"</span>
-      </div>
-      <div class="pair">
-        <span class="key">conversationId</span>
-        <span class="value">18</span>
-      </div>
-      <div class="pair">
-        <span class="key">myConnection</span>
-        <div class="hash value">
-          <div class="pair">
-            <span class="key">userId</span>
-            <span class="value">1</span>
-          </div>
-          <div class="pair">
-            <span class="key">userName</span>
-            <span class="value">"Memothy"</span>
-          </div>
-          <div class="pair">
-            <span class="key">connectionState</span>
-            <span class="value">"open"</span>
-          </div>
-        </div>
-      </div>
-      <div class="pair">
-        <span class="key">connections</span>
-        <div class="array value">
-          <div class="hash value">
-            <div class="pair">
-              <span class="key">userId</span>
-              <span class="value">2</span>
-            </div>
-            <div class="pair">
-              <span class="key">userName</span>
-              <span class="value">"Spiderman"</span>
-            </div>
-            <div class="pair">
-              <span class="key">connectionState</span>
-              <span class="value">"open"</span>
-            </div>
-            <div class="pair">
-              <span class="key">permission</span>
-              <div class="hash value">
-                <div class="pair">
-                  <span class="key">value</span>
-                  <span class="value">"ask"</span>
-                </div>
-                <div class="pair">
-                  <span class="key">scope</span>
-                  <span class="value">"default"</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="hash value">
-            <div class="pair">
-              <span class="key">userId</span>
-              <span class="value">3</span>
-            </div>
-            <div class="pair">
-              <span class="key">userName</span>
-              <span class="value">"Sudoer"</span>
-            </div>
-            <div class="pair">
-              <span class="key">connectionState</span>
-              <span class="value">"closed"</span>
-            </div>
-            <div class="pair">
-              <span class="key">permission</span>
-              <div class="hash value">
-                <div class="pair">
-                  <span class="key">value</span>
-                  <span class="value">"accept"</span>
-                </div>
-                <div class="pair">
-                  <span class="key">scope</span>
-                  <span class="value">"individual"</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="hash value">
-            <div class="pair">
-              <span class="key">userId</span>
-              <span class="value">4</span>
-            </div>
-            <div class="pair">
-              <span class="key">userName</span>
-              <span class="value">"Schemer"</span>
-            </div>
-            <div class="pair">
-              <span class="key">connectionState</span>
-              <span class="value">"open"</span>
-            </div>
-            <div class="pair">
-              <span class="key">permission</span>
-              <div class="hash value">
-                <div class="pair">
-                  <span class="key">value</span>
-                  <span class="value">"accept"</span>
-                </div>
-                <div class="pair">
-                  <span class="key">scope</span>
-                  <span class="value">"individual"</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="hash message-to-2">
-      <div class="pair">
-        <span class="key">event</span>
-        <span class="value">"connections-state-change"</span>
-      </div>
-      <div class="pair">
-        <span class="key">conversationId</span>
-        <span class="value">18</span>
-      </div>
-      <div class="pair">
-        <span class="key">myConnection</span>
-        <div class="hash value">
-          <div class="pair">
-            <span class="key">userId</span>
-            <span class="value">2</span>
-          </div>
-          <div class="pair">
-            <span class="key">userName</span>
-            <span class="value">"Spiderman"</span>
-          </div>
-          <div class="pair">
-            <span class="key">connectionState</span>
-            <span class="value">"open"</span>
-          </div>
-        </div>
-      </div>
-      <div class="pair">
-        <span class="key">connections</span>
-        <div class="array value">
-          <div class="hash value">
-            <div class="pair">
-              <span class="key">userId</span>
-              <span class="value">1</span>
-            </div>
-            <div class="pair">
-              <span class="key">userName</span>
-              <span class="value">"Memothy"</span>
-            </div>
-            <div class="pair">
-              <span class="key">connectionState</span>
-              <span class="value">"open"</span>
-            </div>
-            <div class="pair">
-              <span class="key">permission</span>
-              <div class="hash value">
-                <div class="pair">
-                  <span class="key">value</span>
-                  <span class="value">"accept"</span>
-                </div>
-                <div class="pair">
-                  <span class="key">scope</span>
-                  <span class="value">"default"</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="hash value">
-            <div class="pair">
-              <span class="key">userId</span>
-              <span class="value">3</span>
-            </div>
-            <div class="pair">
-              <span class="key">userName</span>
-              <span class="value">"Sudoer"</span>
-            </div>
-            <div class="pair">
-              <span class="key">connectionState</span>
-              <span class="value">"closed"</span>
-            </div>
-            <div class="pair">
-              <span class="key">permission</span>
-              <div class="hash value">
-                <div class="pair">
-                  <span class="key">value</span>
-                  <span class="value">"accept"</span>
-                </div>
-                <div class="pair">
-                  <span class="key">scope</span>
-                  <span class="value">"default"</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="hash value">
-            <div class="pair">
-              <span class="key">userId</span>
-              <span class="value">4</span>
-            </div>
-            <div class="pair">
-              <span class="key">userName</span>
-              <span class="value">"Schemer"</span>
-            </div>
-            <div class="pair">
-              <span class="key">connectionState</span>
-              <span class="value">"open"</span>
-            </div>
-            <div class="pair">
-              <span class="key">permission</span>
-              <div class="hash value">
-                <div class="pair">
-                  <span class="key">value</span>
-                  <span class="value">"ask"</span>
-                </div>
-                <div class="pair">
-                  <span class="key">scope</span>
-                  <span class="value">"individual"</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="hash message-to-3">
-      <div class="pair">
-        <span class="key">event</span>
-        <span class="value">"connections-state-change"</span>
-      </div>
-      <div class="pair">
-        <span class="key">conversationId</span>
-        <span class="value">18</span>
-      </div>
-      <div class="pair">
-        <span class="key">myConnection</span>
-        <div class="hash value">
-          <div class="pair">
-            <span class="key">userId</span>
-            <span class="value">3</span>
-          </div>
-          <div class="pair">
-            <span class="key">userName</span>
-            <span class="value">"Sudoer"</span>
-          </div>
-          <div class="pair">
-            <span class="key">connectionState</span>
-            <span class="value">"closed"</span>
-          </div>
-        </div>
-      </div>
-      <div class="pair">
-        <span class="key">connections</span>
-        <div class="array value">
-          <div class="hash value">
-            <div class="pair">
-              <span class="key">userId</span>
-              <span class="value">1</span>
-            </div>
-            <div class="pair">
-              <span class="key">userName</span>
-              <span class="value">"Memothy"</span>
-            </div>
-            <div class="pair">
-              <span class="key">connectionState</span>
-              <span class="value">"open"</span>
-            </div>
-            <div class="pair">
-              <span class="key">permission</span>
-              <div class="hash value">
-                <div class="pair">
-                  <span class="key">value</span>
-                  <span class="value">"accept"</span>
-                </div>
-                <div class="pair">
-                  <span class="key">scope</span>
-                  <span class="value">"individual"</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="hash value">
-            <div class="pair">
-              <span class="key">userId</span>
-              <span class="value">2</span>
-            </div>
-            <div class="pair">
-              <span class="key">userName</span>
-              <span class="value">"Spiderman"</span>
-            </div>
-            <div class="pair">
-              <span class="key">connectionState</span>
-              <span class="value">"open"</span>
-            </div>
-            <div class="pair">
-              <span class="key">permission</span>
-              <div class="hash value">
-                <div class="pair">
-                  <span class="key">value</span>
-                  <span class="value">"ask"</span>
-                </div>
-                <div class="pair">
-                  <span class="key">scope</span>
-                  <span class="value">"default"</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="hash value">
-            <div class="pair">
-              <span class="key">userId</span>
-              <span class="value">4</span>
-            </div>
-            <div class="pair">
-              <span class="key">userName</span>
-              <span class="value">"Schemer"</span>
-            </div>
-            <div class="pair">
-              <span class="key">connectionState</span>
-              <span class="value">"open"</span>
-            </div>
-            <div class="pair">
-              <span class="key">permission</span>
-              <div class="hash value">
-                <div class="pair">
-                  <span class="key">value</span>
-                  <span class="value">"accept"</span>
-                </div>
-                <div class="pair">
-                  <span class="key">scope</span>
-                  <span class="value">"individual"</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="hash message-to-4">
-      <div class="pair">
-        <span class="key">event</span>
-        <span class="value">"connections-state-change"</span>
-      </div>
-      <div class="pair">
-        <span class="key">conversationId</span>
-        <span class="value">18</span>
-      </div>
-      <div class="pair">
-        <span class="key">myConnection</span>
-        <div class="hash value">
-          <div class="pair">
-            <span class="key">userId</span>
-            <span class="value">4</span>
-          </div>
-          <div class="pair">
-            <span class="key">userName</span>
-            <span class="value">"Schemer"</span>
-          </div>
-          <div class="pair">
-            <span class="key">connectionState</span>
-            <span class="value">"open"</span>
-          </div>
-        </div>
-      </div>
-      <div class="pair">
-        <span class="key">connections</span>
-        <div class="array value">
-          <div class="hash value">
-            <div class="pair">
-              <span class="key">userId</span>
-              <span class="value">1</span>
-            </div>
-            <div class="pair">
-              <span class="key">userName</span>
-              <span class="value">"Memothy"</span>
-            </div>
-            <div class="pair">
-              <span class="key">connectionState</span>
-              <span class="value">"open"</span>
-            </div>
-            <div class="pair">
-              <span class="key">permission</span>
-              <div class="hash value">
-                <div class="pair">
-                  <span class="key">value</span>
-                  <span class="value">"ask"</span>
-                </div>
-                <div class="pair">
-                  <span class="key">scope</span>
-                  <span class="value">"default"</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="hash value">
-            <div class="pair">
-              <span class="key">userId</span>
-              <span class="value">2</span>
-            </div>
-            <div class="pair">
-              <span class="key">userName</span>
-              <span class="value">"Spiderman"</span>
-            </div>
-            <div class="pair">
-              <span class="key">connectionState</span>
-              <span class="value">"open"</span>
-            </div>
-            <div class="pair">
-              <span class="key">permission</span>
-              <div class="hash value">
-                <div class="pair">
-                  <span class="key">value</span>
-                  <span class="value">"ask"</span>
-                </div>
-                <div class="pair">
-                  <span class="key">scope</span>
-                  <span class="value">"default"</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="hash value">
-            <div class="pair">
-              <span class="key">userId</span>
-              <span class="value">3</span>
-            </div>
-            <div class="pair">
-              <span class="key">userName</span>
-              <span class="value">"Sudoer"</span>
-            </div>
-            <div class="pair">
-              <span class="key">connectionState</span>
-              <span class="value">"closed"</span>
-            </div>
-            <div class="pair">
-              <span class="key">permission</span>
-              <div class="hash value">
-                <div class="pair">
-                  <span class="key">value</span>
-                  <span class="value">"ask"</span>
-                </div>
-                <div class="pair">
-                  <span class="key">scope</span>
-                  <span class="value">"default"</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="hash message-from-1">
-      <div class="pair">
-        <span class="key">event</span>
+        <span class="key">command</span>
         <span class="value">"eject"</span>
       </div>
       <div class="pair">
@@ -2139,15 +790,15 @@
 
     <div class="hash message-to-1">
       <div class="pair">
-        <span class="key">event</span>
-        <span class="value">"connections-state-change"</span>
+        <span class="key">notice</span>
+        <span class="value">"conversation"</span>
       </div>
       <div class="pair">
         <span class="key">conversationId</span>
         <span class="value">18</span>
       </div>
       <div class="pair">
-        <span class="key">myConnection</span>
+        <span class="key">self</span>
         <div class="hash value">
           <div class="pair">
             <span class="key">userId</span>
@@ -2159,82 +810,123 @@
           </div>
           <div class="pair">
             <span class="key">connectionState</span>
-            <span class="value">"closed"</span>
+            <span class="value">"open"</span>
+          </div>
+          <div class="pair">
+            <span class="key">ejectionState</span>
+            <div class="hash value">
+              <div class="pair">
+                <span class="key">votes</span>
+                <span class="value">1</span>
+              </div>
+              <div class="pair">
+                <span class="key">requiredVotes</span>
+                <span class="value">3</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
       <div class="pair">
-        <span class="key">connections</span>
+        <span class="key">others</span>
         <div class="array value">
-          <div class="hash value">
-            <div class="pair">
-              <span class="key">userId</span>
-              <span class="value">2</span>
-            </div>
-            <div class="pair">
-              <span class="key">userName</span>
-              <span class="value">"Spiderman"</span>
-            </div>
-            <div class="pair">
-              <span class="key">connectionState</span>
-              <span class="value">"open"</span>
-            </div>
-            <div class="pair">
-              <span class="key">permission</span>
-              <div class="hash value">
-                <div class="pair">
-                  <span class="key">value</span>
-                  <span class="value">"ask"</span>
-                </div>
-                <div class="pair">
-                  <span class="key">scope</span>
-                  <span class="value">"default"</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="hash value">
-            <div class="pair">
-              <span class="key">userId</span>
-              <span class="value">4</span>
-            </div>
-            <div class="pair">
-              <span class="key">userName</span>
-              <span class="value">"Schemer"</span>
-            </div>
-            <div class="pair">
-              <span class="key">connectionState</span>
-              <span class="value">"open"</span>
-            </div>
-            <div class="pair">
-              <span class="key">permission</span>
-              <div class="hash value">
-                <div class="pair">
-                  <span class="key">value</span>
-                  <span class="value">"accept"</span>
-                </div>
-                <div class="pair">
-                  <span class="key">scope</span>
-                  <span class="value">"individual"</span>
-                </div>
-              </div>
-            </div>
-          </div>
+          <div class="hash value">...</div>
+          <div class="hash value">...</div>
+          <div class="hash value">...</div>
         </div>
       </div>
     </div>
+    <div class="hash message-to-2">...</div>
+    <div class="hash message-to-3">...</div>
+    <div class="hash message-to-4">...</div>
 
-    <div class="hash message-to-2">
+    <div class="hash message-from-4">
       <div class="pair">
-        <span class="key">event</span>
-        <span class="value">"connections-state-change"</span>
+        <span class="key">command</span>
+        <span class="value">"eject"</span>
       </div>
       <div class="pair">
         <span class="key">conversationId</span>
         <span class="value">18</span>
       </div>
       <div class="pair">
-        <span class="key">myConnection</span>
+        <span class="key">ejecteeId</span>
+        <span class="value">3</span>
+      </div>
+    </div>
+
+    <div class="hash message-to-1">
+      <div class="pair">
+        <span class="key">notice</span>
+        <span class="value">"conversation"</span>
+      </div>
+      <div class="pair">
+        <span class="key">conversationId</span>
+        <span class="value">18</span>
+      </div>
+      <div class="pair">
+        <span class="key">self</span>
+        <div class="hash value">
+          <div class="pair">
+            <span class="key">userId</span>
+            <span class="value">1</span>
+          </div>
+          <div class="pair">
+            <span class="key">userName</span>
+            <span class="value">"Memothy"</span>
+          </div>
+          <div class="pair">
+            <span class="key">connectionState</span>
+            <span class="value">"open"</span>
+          </div>
+          <div class="pair">
+            <span class="key">ejectionState</span>
+            <div class="hash value">
+              <div class="pair">
+                <span class="key">votes</span>
+                <span class="value">0</span>
+              </div>
+              <div class="pair">
+                <span class="key">requiredVotes</span>
+                <span class="value">2</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pair">
+        <span class="key">others</span>
+        <div class="array value">
+          <div class="hash value">...</div>
+          <div class="hash value">...</div>
+        </div>
+      </div>
+    </div>
+    <div class="hash message-to-2">...</div>
+    <div class="hash message-to-4">...</div>
+
+    <div class="hash message-from-1">
+      <div class="pair">
+        <span class="key">command</span>
+        <span class="value">"close"</span>
+      </div>
+      <div class="pair">
+        <span class="key">conversationId</span>
+        <span class="value">18</span>
+      </div>
+    </div>
+
+    <div class="hash message-to-2">
+      <div class="pair">
+        <span class="key">notice</span>
+        <span class="value">"conversation"</span>
+      </div>
+      <div class="pair">
+        <span class="key">conversationId</span>
+        <span class="value">18</span>
+      </div>
+      <div class="pair">
+        <span class="key">self</span>
         <div class="hash value">
           <div class="pair">
             <span class="key">userId</span>
@@ -2248,38 +940,24 @@
             <span class="key">connectionState</span>
             <span class="value">"open"</span>
           </div>
-        </div>
-      </div>
-      <div class="pair">
-        <span class="key">connections</span>
-        <div class="array value">
-          <div class="hash value">
-            <div class="pair">
-              <span class="key">userId</span>
-              <span class="value">1</span>
-            </div>
-            <div class="pair">
-              <span class="key">userName</span>
-              <span class="value">"Memothy"</span>
-            </div>
-            <div class="pair">
-              <span class="key">connectionState</span>
-              <span class="value">"closed"</span>
-            </div>
-            <div class="pair">
-              <span class="key">permission</span>
-              <div class="hash value">
-                <div class="pair">
-                  <span class="key">value</span>
-                  <span class="value">"accept"</span>
-                </div>
-                <div class="pair">
-                  <span class="key">scope</span>
-                  <span class="value">"default"</span>
-                </div>
+          <div class="pair">
+            <span class="key">ejectionState</span>
+            <div class="hash value">
+              <div class="pair">
+                <span class="key">votes</span>
+                <span class="value">0</span>
+              </div>
+              <div class="pair">
+                <span class="key">requiredVotes</span>
+                <span class="value">1</span>
               </div>
             </div>
           </div>
+        </div>
+      </div>
+      <div class="pair">
+        <span class="key">others</span>
+        <div class="array value">
           <div class="hash value">
             <div class="pair">
               <span class="key">userId</span>
@@ -2292,6 +970,19 @@
             <div class="pair">
               <span class="key">connectionState</span>
               <span class="value">"open"</span>
+            </div>
+            <div class="pair">
+              <span class="key">ejectionState</span>
+              <div class="hash value">
+                <div class="pair">
+                  <span class="key">votes</span>
+                  <span class="value">0</span>
+                </div>
+                <div class="pair">
+                  <span class="key">requiredVotes</span>
+                  <span class="value">1</span>
+                </div>
+              </div>
             </div>
             <div class="pair">
               <span class="key">permission</span>
@@ -2310,97 +1001,11 @@
         </div>
       </div>
     </div>
-
-    <div class="hash message-to-4">
-      <div class="pair">
-        <span class="key">event</span>
-        <span class="value">"connections-state-change"</span>
-      </div>
-      <div class="pair">
-        <span class="key">conversationId</span>
-        <span class="value">18</span>
-      </div>
-      <div class="pair">
-        <span class="key">myConnection</span>
-        <div class="hash value">
-          <div class="pair">
-            <span class="key">userId</span>
-            <span class="value">4</span>
-          </div>
-          <div class="pair">
-            <span class="key">userName</span>
-            <span class="value">"Schemer"</span>
-          </div>
-          <div class="pair">
-            <span class="key">connectionState</span>
-            <span class="value">"open"</span>
-          </div>
-        </div>
-      </div>
-      <div class="pair">
-        <span class="key">connections</span>
-        <div class="array value">
-          <div class="hash value">
-            <div class="pair">
-              <span class="key">userId</span>
-              <span class="value">1</span>
-            </div>
-            <div class="pair">
-              <span class="key">userName</span>
-              <span class="value">"Memothy"</span>
-            </div>
-            <div class="pair">
-              <span class="key">connectionState</span>
-              <span class="value">"closed"</span>
-            </div>
-            <div class="pair">
-              <span class="key">permission</span>
-              <div class="hash value">
-                <div class="pair">
-                  <span class="key">value</span>
-                  <span class="value">"ask"</span>
-                </div>
-                <div class="pair">
-                  <span class="key">scope</span>
-                  <span class="value">"default"</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="hash value">
-            <div class="pair">
-              <span class="key">userId</span>
-              <span class="value">2</span>
-            </div>
-            <div class="pair">
-              <span class="key">userName</span>
-              <span class="value">"Spiderman"</span>
-            </div>
-            <div class="pair">
-              <span class="key">connectionState</span>
-              <span class="value">"open"</span>
-            </div>
-            <div class="pair">
-              <span class="key">permission</span>
-              <div class="hash value">
-                <div class="pair">
-                  <span class="key">value</span>
-                  <span class="value">"ask"</span>
-                </div>
-                <div class="pair">
-                  <span class="key">scope</span>
-                  <span class="value">"default"</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div class="hash message-to-4">...</div>
 
     <div class="hash message-from-2">
       <div class="pair">
-        <span class="key">event</span>
+        <span class="key">command</span>
         <span class="value">"speak"</span>
       </div>
       <div class="pair">
@@ -2413,30 +1018,30 @@
       </div>
     </div>
 
-    <div class="hash message-to-all">
+    <div class="hash message-to-2">
       <div class="pair">
-        <span class="key">event</span>
-        <span class="value">"speak"</span>
+        <span class="key">notice</span>
+        <span class="value">"conversation"</span>
       </div>
       <div class="pair">
         <span class="key">conversationId</span>
         <span class="value">18</span>
       </div>
       <div class="pair">
-        <span class="key">userId</span>
-        <span class="value">2</span>
-      </div>
-      <div class="pair">
-        <span class="key">userName</span>
-        <span class="value">Spiderman</span>
-      </div>
-      <div class="pair">
         <span class="key">messages</span>
         <div class="array value">
           <div class="hash value">
             <div class="pair">
+              <span class="key">userId</span>
+              <span class="value">2</span>
+            </div>
+            <div class="pair">
+              <span class="key">userName</span>
+              <span class="value">Spiderman</span>
+            </div>
+            <div class="pair">
               <span class="key">timeStamp</span>
-              <span class="value">12853425</span>
+              <span class="value">12863425</span>
             </div>
             <div class="pair">
               <span class="key">message</span>
@@ -2449,7 +1054,7 @@
 
     <div class="hash message-from-4">
       <div class="pair">
-        <span class="key">event</span>
+        <span class="key">command</span>
         <span class="value">"speak"</span>
       </div>
       <div class="pair">
@@ -2462,27 +1067,27 @@
       </div>
     </div>
 
-    <div class="hash message-to-all">
+    <div class="hash message-to-2">
       <div class="pair">
-        <span class="key">event</span>
-        <span class="value">"speak"</span>
+        <span class="key">notice</span>
+        <span class="value">"messages"</span>
       </div>
       <div class="pair">
         <span class="key">conversationId</span>
         <span class="value">18</span>
       </div>
       <div class="pair">
-        <span class="key">userId</span>
-        <span class="value">4</span>
-      </div>
-      <div class="pair">
-        <span class="key">userName</span>
-        <span class="value">Schemer</span>
-      </div>
-      <div class="pair">
         <span class="key">messages</span>
         <div class="array value">
           <div class="hash value">
+            <div class="pair">
+              <span class="key">userId</span>
+              <span class="value">4</span>
+            </div>
+            <div class="pair">
+              <span class="key">userName</span>
+              <span class="value">Schemer</span>
+            </div>
             <div class="pair">
               <span class="key">timeStamp</span>
               <span class="value">12857235</span>
@@ -2495,139 +1100,16 @@
         </div>
       </div>
     </div>
+    <div class="hash message-to-4">...</div>
 
     <div class="hash message-from-4">
       <div class="pair">
-        <span class="key">event</span>
-        <span class="value">"eject"</span>
+        <span class="key">command</span>
+        <span class="value">"close"</span>
       </div>
       <div class="pair">
         <span class="key">conversationId</span>
         <span class="value">18</span>
-      </div>
-      <div class="pair">
-        <span class="key">ejecteeId</span>
-        <span class="value">4</span>
-      </div>
-    </div>
-
-    <div class="hash message-to-2">
-      <div class="pair">
-        <span class="key">event</span>
-        <span class="value">"connections-state-change"</span>
-      </div>
-      <div class="pair">
-        <span class="key">conversationId</span>
-        <span class="value">18</span>
-      </div>
-      <div class="pair">
-        <span class="key">myConnection</span>
-        <div class="hash value">
-          <div class="pair">
-            <span class="key">userId</span>
-            <span class="value">2</span>
-          </div>
-          <div class="pair">
-            <span class="key">userName</span>
-            <span class="value">"Spiderman"</span>
-          </div>
-          <div class="pair">
-            <span class="key">connectionState</span>
-            <span class="value">"closed"</span>
-          </div>
-        </div>
-      </div>
-      <div class="pair">
-        <span class="key">connections</span>
-        <div class="array value">
-          <div class="hash value">
-            <div class="pair">
-              <span class="key">userId</span>
-              <span class="value">4</span>
-            </div>
-            <div class="pair">
-              <span class="key">userName</span>
-              <span class="value">"Schemer"</span>
-            </div>
-            <div class="pair">
-              <span class="key">connectionState</span>
-              <span class="value">"closed"</span>
-            </div>
-            <div class="pair">
-              <span class="key">permission</span>
-              <div class="hash value">
-                <div class="pair">
-                  <span class="key">value</span>
-                  <span class="value">"ask"</span>
-                </div>
-                <div class="pair">
-                  <span class="key">scope</span>
-                  <span class="value">"individual"</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="hash message-to-4">
-      <div class="pair">
-        <span class="key">event</span>
-        <span class="value">"connections-state-change"</span>
-      </div>
-      <div class="pair">
-        <span class="key">conversationId</span>
-        <span class="value">18</span>
-      </div>
-      <div class="pair">
-        <span class="key">myConnection</span>
-        <div class="hash value">
-          <div class="pair">
-            <span class="key">userId</span>
-            <span class="value">4</span>
-          </div>
-          <div class="pair">
-            <span class="key">userName</span>
-            <span class="value">"Schemer"</span>
-          </div>
-          <div class="pair">
-            <span class="key">connectionState</span>
-            <span class="value">"closed"</span>
-          </div>
-        </div>
-      </div>
-      <div class="pair">
-        <span class="key">connections</span>
-        <div class="array value">
-          <div class="hash value">
-            <div class="pair">
-              <span class="key">userId</span>
-              <span class="value">2</span>
-            </div>
-            <div class="pair">
-              <span class="key">userName</span>
-              <span class="value">"Spiderman"</span>
-            </div>
-            <div class="pair">
-              <span class="key">connectionState</span>
-              <span class="value">"closed"</span>
-            </div>
-            <div class="pair">
-              <span class="key">permission</span>
-              <div class="hash value">
-                <div class="pair">
-                  <span class="key">value</span>
-                  <span class="value">"ask"</span>
-                </div>
-                <div class="pair">
-                  <span class="key">scope</span>
-                  <span class="value">"default"</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
