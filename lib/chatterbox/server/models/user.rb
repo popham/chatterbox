@@ -1,5 +1,5 @@
-require './mongo_db_model'
-require './peer_opens_policy'
+require 'server/models/mongo_db_model'
+require 'server/models/peer_opens_policy'
 
 class User < MongoDbModel
   private_class_method :new
