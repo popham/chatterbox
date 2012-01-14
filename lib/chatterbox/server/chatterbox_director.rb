@@ -1,6 +1,6 @@
 require 'goliath'
-require 'server/chatterbox_info'
-require 'server/chatterbox_websocket'
+require 'chatterbox/server/chatterbox_info'
+require 'chatterbox/server/chatterbox_websocket'
 
 class ChatterboxDirector < Goliath::API
   get '/chatterbox/', ChatterboxInfo
