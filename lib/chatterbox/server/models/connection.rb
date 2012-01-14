@@ -1,32 +1,32 @@
-require 'mongo'
+module Chatterbox
+  class Connection
+    @@Open = 1
+    @@Uninitialized = 2
+    @@Closed = 4
 
-class Connection
-  @@Open = 1
-  @@Uninitialized = 2
-  @@Closed = 4
+    def initialize user, conversation
+      @user = user
+      @conversation = conversation
+    end
 
-  def initialize user, conversation
-    @user = user
-    @conversation = conversation
-  end
+    def open
+      
+    end
 
-  def open
+    def close
+      
+    end
 
-  end
+    def post message
+      
+    end
 
-  def close
+    def eject user
+      
+    end
 
-  end
-
-  def post message
-
-  end
-
-  def eject user
-
-  end
-
-  def invite user
-
+    def invite user
+      
+    end
   end
 end

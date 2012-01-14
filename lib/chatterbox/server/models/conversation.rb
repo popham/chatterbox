@@ -1,8 +1,8 @@
-require 'mongo'
+module Chatterbox
+  class Conversation
+    def createConnection(user)
+      
+    end
 
-class Conversation
-  def createConnection(user)
-    
   end
-
 end
