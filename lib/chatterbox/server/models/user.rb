@@ -5,6 +5,7 @@ module Chatterbox
   class User < MongoDbModel
     private_class_method :new
 
+    =begin Factory Methods =end
     def initialize user
       @user_id = user[:_id]
       @username = user[:username]
@@ -19,41 +20,42 @@ module Chatterbox
         peer_opens_policy: peer_opens_policy
       }
       user[:_id] = options[:user_id] if options[:user_id]
-      self.users.insert(user, safe: true)
-      new user
-    end
-
-    def self.load(user_id)
-      user = self.users.find_one({_id: user_id})
-      if user
-        @user_id = user_id
-        @username = user[:username]
-        @default_peer_opens_policy = user[:peer_opens_policy][:default]
-        @peer_opens_policies = user[:peer_opens_policy][:individuals]
+      Connection do |db|
+        response = db.collection(collection_name).safe_insert(user)
+        response.callback do
+          return new user
+        end
+        response.errback do
+          puts 'Failed to create a user document.'
+          return nil
+        end
       end
     end
 
-    def self.lookup_id(username)
-      self.users.find_one({username: username})['_id']
+    def self.load(user_id)
+      SyncDb do |db|
+        user = blocking db.collection(collection_name).find_one({_id: user_id})
+        new user if user
+      end
+    end
+    =begin End of Factory Methods =end
+    
+    # Implements Protocol from MongoDbModel
+    def self.index db
+      db.collection(collection_name).create_index(:username, unique: true)
     end
 
     private
+    # Implements Protocol from MongoDbModel
+    def self.collection_name
+      'users'
+    end
+
     def self.fill_peer_opens_policy policy
+      raise InvalidPeerOpensPolicy if not PeerOpensPolicy.valid? policy
       policy[:default] = PeerOpensPolicy.Accept if not policy[:default]
       policy[:individuals] = {} if not policy[:individuals]
       policy
-    end
-
-    def self.users
-      get_collection 'users'
-    end
-
-    def self.index
-      users.create_index(:username, {unique: true})
-    end
-
-    def self.drop
-      users.drop
     end
   end
 end

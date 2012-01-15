@@ -1,22 +1,29 @@
 require 'em-synchrony'
 require 'em-synchrony/em-mongo'
+require 'chatterbox/util/protocol_unimplemented'
+require 'chatterbox/server/models'
 
 class MongoDbModel
-  def self.SyncDb
-    db_name = case ENV['Chatterbox']
-              when 'test' then 'ChatterboxTesting'
-              when 'prod' then 'ChatterboxProduction'
-              when 'dev' then 'ChatterboxDevelopment'
-              else 'ChatterboxDevelopment'
-              end
-    yield EM::Mongo::Connection.new.db(db_name)
+  def self.blocking(df)
+    EM::Synchrony.sync df
   end
 
-  def self.AsyncDb
+  def self.index db
+    raise ProtocolUnimplemented.new __method__
+  end
+
+  def self.Connection
     EventMachine.synchrony do
-      SyncDb do |db|
-        yield db
-      end
+      yield EM::Mongo::Connection.new.db(Chatterbox::Models.db_name)
     end
+  end
+
+  def self.drop db
+    db.collection(self.collection_name).drop
+  end
+
+  private
+  def self.collection_name
+    raise ProtocolUnimplemented.new __method__
   end
 end
