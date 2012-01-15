@@ -1,1 +1,1 @@
-ruby chatterbox_director.rb -e dev -s -v
+ruby -I /home/popham/github/chatterbox/lib/ director.rb -e dev -s -v
