@@ -16,7 +16,7 @@ module Chatterbox
     def self.valid? policy
       valid_keys = Set[:default, :individuals]
       valid_values = Set[@@Verify, @@Accept]
-      policy.each_pair do |key,value|
+      policy.each_pair do |key, value|
         return false if not valid_keys.member? key
         return false if not valid_values.member? value
       end
