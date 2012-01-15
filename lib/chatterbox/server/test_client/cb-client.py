@@ -15,7 +15,7 @@ class ChatterboxClientProtocol(WebSocketClientProtocol):
         print "Lost Connection: %s" % (reason)
 
 if __name__ == '__main__':
-    url = createWsUrl('0.0.0.0', 9000);
+    url = createWsUrl('0.0.0.0', 9000, False, '/chatterbox/0.1/');
     factory = WebSocketClientFactory(url, None, [], None, True)
     factory.protocol = ChatterboxClientProtocol
     connector = reactor.connectTCP('localhost', 9000, factory, 30, ('127.0.0.1', 3000))
