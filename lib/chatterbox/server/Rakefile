@@ -1,0 +1,29 @@
+require 'chatterbox/server/models'
+
+namespace :test do
+  namespace :db do
+    require 'chatterbox/server/models/user'
+
+    desc 'Create testing database and indices.'
+    task :setup do
+      Chatterbox::Models.all.each do |model|
+        model.index Chatterbox::Models.testing_db
+      end
+    end
+
+    desc 'Destroy the testing database.'
+    task :kill do
+      Chatterbox::Models.all.each do |model|
+        model.drop Chatterbox::Models.testing_db
+      end
+    end
+  end
+
+  desc 'Run model tests.'
+  require 'rspec/core/rake_task'
+  RSpec::Core::RakeTask.new(:models) do |t|
+    t.pattern = "./models/rspec/*_spec.rb"
+    t.rspec_opts = "-I #{Pathname.new(__FILE__).dirname.parent.parent.to_s}"
+  end
+
+end
