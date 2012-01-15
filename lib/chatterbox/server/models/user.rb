@@ -2,10 +2,10 @@ require 'chatterbox/server/models/mongo_db_model'
 require 'chatterbox/server/models/peer_opens_policy'
 
 module Chatterbox
+  # Factory Methods
   class User < MongoDbModel
     private_class_method :new
 
-    =begin Factory Methods =end
     def initialize user
       @user_id = user[:_id]
       @username = user[:username]
@@ -38,25 +38,30 @@ module Chatterbox
         new user if user
       end
     end
-    =begin End of Factory Methods =end
-    
-    # Implements Protocol from MongoDbModel
-    def self.index db
-      db.collection(collection_name).create_index(:username, unique: true)
-    end
 
     private
-    # Implements Protocol from MongoDbModel
-    def self.collection_name
-      'users'
-    end
-
     def self.fill_peer_opens_policy policy
       raise InvalidPeerOpensPolicy if not PeerOpensPolicy.valid? policy
       policy[:default] = PeerOpensPolicy.Accept if not policy[:default]
       policy[:individuals] = {} if not policy[:individuals]
       policy
     end
+  end
+
+  # MongoDbModel Virtual Methods
+  class User < MongoDbModel
+    def self.index db
+      db.collection(collection_name).create_index(:username, unique: true)
+    end
+
+    private
+    def self.collection_name
+      'users'
+    end
+  end
+
+  class User < MongoDbModel
+    
   end
 end
 
