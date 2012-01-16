@@ -1,20 +1,18 @@
 require 'mongo'
 
 module Chatterbox
-  module Models
-    def self.include
-      require 'chatterbox/server/models/user'
-    end
-
+  module Model
     def self.all
-      include
+      require 'chatterbox/server/app/models/user'
       [User]
     end
 
     def self.db_name
-      db = Chatterbox::Models.db_names[:dev]
-      env = ENV['Chatterbox'].to_sym if ENV['Chatterbox']
-      db = Chatterbox::Models.db_names[env] if env
+      if ENV['Chatterbox']
+        db_names[ENV['Chatterbox'].to_sym]
+      else
+        db_names[:dev]
+      end
     end
 
     def self.testing_db

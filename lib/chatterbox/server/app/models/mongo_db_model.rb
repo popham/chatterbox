@@ -1,7 +1,7 @@
 require 'em-synchrony'
 require 'em-synchrony/em-mongo'
 require 'chatterbox/util/protocol_unimplemented'
-require 'chatterbox/server/models'
+require 'chatterbox/server/app/models'
 
 class MongoDbModel
   def self.blocking(df)
@@ -14,7 +14,7 @@ class MongoDbModel
 
   def self.Connection
     EventMachine.synchrony do
-      yield EM::Mongo::Connection.new.db(Chatterbox::Models.db_name)
+      yield EM::Mongo::Connection.new.db(Chatterbox::Model.db_name)
     end
   end
 
