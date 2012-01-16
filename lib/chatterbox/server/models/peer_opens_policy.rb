@@ -2,8 +2,8 @@ require 'set'
 
 module Chatterbox
   class PeerOpensPolicy
-    @@Verify = 1
-    @@Accept = 2
+    @@Verify = :verify
+    @@Accept = :accept
 
     def self.Verify
       @@Verify
@@ -11,6 +11,11 @@ module Chatterbox
 
     def self.Accept
       @@Accept
+    end
+
+    # takes an array of policies and maps them to the policy
+    def self.initialize? policies
+      policies.index(@@Verify).nil?
     end
 
     def self.valid? policy

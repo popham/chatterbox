@@ -5,9 +5,10 @@ module Chatterbox
   # Factory Methods
   class User < MongoDbModel
     private_class_method :new
+    attr_reader :id, :username, :default_peer_opens_policy, :peer_opens_policies
 
     def initialize user
-      @user_id = user[:_id]
+      @id = user[:_id]
       @username = user[:username]
       @default_peer_opens_policy = user[:peer_opens_policy][:default]
       @peer_opens_policies = user[:peer_opens_policy][:individuals]
@@ -20,6 +21,7 @@ module Chatterbox
         peer_opens_policy: peer_opens_policy
       }
       user[:_id] = options[:user_id] if options[:user_id]
+
       Connection do |db|
         response = db.collection(collection_name).safe_insert(user)
         response.callback do
@@ -60,6 +62,7 @@ module Chatterbox
     end
   end
 
+  # State Transitions
   class User < MongoDbModel
     
   end

@@ -4,6 +4,7 @@ module Chatterbox
   class Websocket < Goliath::WebSocket
     def on_open(env)
       env.logger.info 'Websocket opening...'
+      env.handler.send_data('asdf')
     end
 
     def on_message(env, msg)
